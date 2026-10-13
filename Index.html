@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6d28d9">
+  <meta name="description" content="الموقع الشخصي الرسمي لـ Raheek Hatem">
+  <title>Raheek Hatem | موقعي الشخصي</title>
+
+  <style>
+    :root {
+      --main: #7028c7;
+      --dark: #24123d;
+      --light: #f8f4ff;
+      --card: #ffffff;
+      --text: #302441;
+      --muted: #786b89;
+      --border: #e9def8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.9;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      --light: #171123;
+      --card: #251b36;
+      --text: #f7f0ff;
+      --muted: #c6b6d9;
+      --border: #413052;
+      --dark: #100a1a;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 3px 15px #31104b0a;
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 19px;
+      color: var(--main);
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .links a {
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .links a:hover {
+      color: var(--main);
+    }
+
+    .theme-btn {
+      background: var(--light);
+      color: var(--main);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+    }
+
+    .hero {
+      padding: 85px 0;
+      background:
+        radial-gradient(circle at 10% 20%, #e5d1ff 0, transparent 35%),
+        radial-gradient(circle at 90% 80%, #f3d9ff 0, transparent 35%),
+        var(--light);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eadcff;
+      color: #5b21a8;
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    h1 span {
+      color: var(--main);
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 25px;
+      max-width: 540px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--main);
+      transition: 0.25s;
+    }
+
+    .primary {
+      background: var(--main);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .logo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 35px 20px;
+      text-align: center;
+      box-shadow: 0 20px 60px #5b21a811;
+    }
+
+    .logo-large {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+
+    .logo-card h2 {
+      font-size: 25px;
+      color: var(--main);
+    }
+
+    .logo-card p {
+      margin: 5px 0 0;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 75px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px #7028c711;
+    }
+
+    .card-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: #f0e4ff;
+      color: #7028c7;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 35px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-box p {
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .contact p {
+      color: #d6c9e8;
+      margin: 12px 0 25px;
+    }
+
+    .contact .btn {
+      border-color: #c9a7ff;
+      color: white;
+    }
+
+    footer {
+      padding: 25px 0;
+      background: var(--card);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      color: var(--main);
+      font-weight: bold;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .hero p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .logo-card {
+        max-width: 330px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+
+    @media (min-width: 500px) and (max-width: 760px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#home" aria-label="Raheek Hatem الرئيسية">
+          <!-- اللوجو مرسوم داخل الكود -->
+          <svg class="logo" viewBox="0 0 100 100"
+               xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="46"
+                    fill="#f0e4ff" stroke="#7028c7" stroke-width="2"/>
+            <path d="M32 25 Q50 8 68 25"
+                  fill="none" stroke="#7028c7" stroke-width="3"/>
+            <text x="50" y="70" text-anchor="middle"
+                  font-size="55" font-family="Georgia"
+                  font-style="italic" fill="#7028c7">R</text>
+            <path d="M73 67 C64 57 61 72 73 79 C85 72 82 57 73 67"
+                  fill="#e34e9a"/>
+            <path d="M36 16 L40 7 L45 15 L53 12 L51 21 L38 21 Z"
+                  fill="#7028c7"/>
+          </svg>
+          <span>Raheek Hatem</span>
+        </a>
+
+        <div class="links">
+          <a href="#home">الرئيسية</a>
+          <a href="#services">خدماتي</a>
+          <a href="#portfolio">أعمالي</a>
+          <a href="#about">من أنا</a>
+          <a href="#contact">تواصل معي</a>
+        </div>
+
+        <button class="theme-btn" id="themeBtn"
+                aria-label="تغيير المظهر">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <span class="tag">مرحبًا بك في موقعي الشخصي ✨</span>
+          <h1>أهلًا، أنا <span>Raheek Hatem</span></h1>
+          <p>
+            هذه مساحتي الرقمية التي أشارك فيها اهتماماتي
+            ومشاريعي وأفكاري. أتعلم كل يوم وأطمح إلى
+            تطوير مهاراتي وصناعة مستقبل مميز في عالم التكنولوجيا.
+          </p>
+          <div class="actions">
+            <a href="#portfolio" class="btn primary">اكتشف أعمالي</a>
+            <a href="#contact" class="btn">تواصل معي</a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <svg class="logo-large" viewBox="0 0 200 200"
+               xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0" y1="0"
+                              x2="1" y2="1">
+                <stop offset="0%" stop-color="#b98aff"/>
+                <stop offset="100%" stop-color="#7028c7"/>
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="94"
+                    fill="#f6edff" stroke="url(#logoGradient)"
+                    stroke-width="3"/>
+            <circle cx="100" cy="100" r="83"
+                    fill="none" stroke="#d7baff" stroke-width="1.5"/>
+            <path d="M72 39 L80 20 L91 36 L105 28 L104 45 L74 45 Z"
+                  fill="url(#logoGradient)"/>
+            <text x="100" y="133" text-anchor="middle"
+                  font-family="Georgia,serif" font-style="italic"
+                  font-size="110" fill="#54218e">R</text>
+            <path d="M143 120 C128 103 125 126 143 139
+                     C161 126 158 103 143 120 Z"
+                  fill="#e34e9a"/>
+            <path d="M34 136 Q45 116 37 96 M30 116 L20 105
+                     M38 108 L49 97 M40 133 L53 126"
+                  fill="none" stroke="#a27bd1" stroke-width="3"
+                  stroke-linecap="round"/>
+            <path d="M160 136 Q150 116 162 96 M165 116 L176 105
+                     M160 108 L150 97 M158 133 L146 126"
+                  fill="none" stroke="#a27bd1" stroke-width="3"
+                  stroke-linecap="round"/>
+          </svg>
+          <h2>Raheek Hatem</h2>
+          <p>طموح • إبداع • مستقبل رقمي</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>اهتماماتي</h2>
+          <p>مجالات أطمح إلى التعلم والتطور فيها</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>تطوير المواقع</h3>
+            <p>تعلم بناء صفحات ويب عصرية باستخدام HTML وCSS وJavaScript.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>التصميم والإبداع</h3>
+            <p>الاهتمام بالألوان والتنسيق وتصميم واجهات جذابة وسهلة الاستخدام.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🚀</div>
+            <h3>التعلم المستمر</h3>
+            <p>اكتساب مهارات جديدة والعمل على تطوير الأفكار والمشروعات الرقمية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>معرض أعمالي</h2>
+          <p>نماذج من المشروعات التي أتعلم من خلالها</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">🌐</div>
+            <h3>موقعي الشخصي</h3>
+            <p>موقع تعريفي يحمل اسمي وهويتي الرقمية.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📚</div>
+            <h3>مشروعات تعليمية</h3>
+            <p>أفكار رقمية لتنظيم الدراسة وتسهيل التعلم.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">✨</div>
+            <h3>أفكار مستقبلية</h3>
+            <p>مساحة لإضافة مشروعاتي الجديدة عندما تصبح جاهزة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>من أنا؟</h2>
+          <p>تعرف أكثر على موقعي</p>
+        </div>
+
+        <div class="about-box">
+          <h3>أنا Raheek Hatem 💜</h3>
+          <p>
+            أؤمن بأن كل خطوة في التعلم تقربنا من أهدافنا.
+            أنشأت هذا الموقع ليكون بداية رحلتي في عالم الويب،
+            ومساحة أعرض فيها أفكاري وأعمالي مع الوقت.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>لنتواصل معًا</h2>
+        <p>يمكنك إضافة بريدك الإلكتروني أو حساباتك هنا لاحقًا.</p>
+        <a class="btn" href="#home">العودة إلى الرئيسية ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>صُنع بكل حب 💜 بواسطة
+        <span class="footer-brand">Raheek Hatem</span>
+      </p>
+      <p>© <span id="year"></span> جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script>
+    // تغيير المظهر بين الفاتح والداكن
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      themeBtn.textContent =
+        document.body.classList.contains("dark") ? "☀" : "☾";
+    });
+
+    // عرض السنة الحالية تلقائيًا
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
